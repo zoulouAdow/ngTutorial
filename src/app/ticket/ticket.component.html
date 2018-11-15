@@ -1,0 +1,33 @@
+<div (click)="clickChanged()" class="card">
+  <p style="background-color:cadetblue">
+    ticket {{ticketIndex}} works!
+  </p>
+  <div class="card-body" >
+    <div class="container"  >
+      <div class="row">
+        <div class="col-sm">
+          <img height="300" width="180" [src]="ticketData.url" alt="">
+        </div>
+        <div class="col-sm">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">name :{{ticketData.name}}</div>
+            </div>
+            <div class="row">
+              <div class="col-sm">description : {{ticketData.description}}</div>
+            </div>
+            <div class="row">
+              <div class="col-sm">Index :{{ticketIndex}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md">
+          <button type="button" (click)="ticketService.edit(ticketIndex)" class="btn btn-outline-primary"> edit </button>
+          <button type="button" (click)="ticketService.remove(ticketIndex, beingEditedCallback)" class="btn btn-outline-danger"> remove</button>
+        </div>
+        <div class="col-md"> <div [ngClass]="{'lds-hourglass':beingEdited}" style = "width: 100%; height: 100%;"><div></div>
+      </div>
+    </div>
